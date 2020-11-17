@@ -1,0 +1,4 @@
+rootProject.name = "groupware_project_v2"
+
+include 'common'
+include 'web'

@@ -1,10 +1,10 @@
 package com.swg.config.database;
 
+import com.zaxxer.hikari.HikariDataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -17,26 +17,34 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
-class ApplicationConfig {
+class DataSourceConfiguration {
 
     @Bean
     public DataSource dataSource() {
-
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        return builder.setType(EmbeddedDatabaseType.HSQL).build();
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setUsername("sgw");
+        dataSource.setPassword("1234");
+        dataSource.setJdbcUrl("jdbc:mariadb://127.0.0.1:3306/swg");
+        dataSource.setMinimumIdle(2);
+        dataSource.setMaximumPoolSize(5);
+        return dataSource;
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.acme.domain");
+        factory.setJpaVendorAdapter(jpaVendorAdapter());
+        factory.setPackagesToScan("com.swg");
         factory.setDataSource(dataSource());
         return factory;
+    }
+
+    private HibernateJpaVendorAdapter jpaVendorAdapter() {
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setShowSql(true);
+        vendorAdapter.setGenerateDdl(true);
+        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MariaDB102Dialect");
+        return vendorAdapter;
     }
 
     @Bean

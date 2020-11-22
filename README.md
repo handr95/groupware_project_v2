@@ -61,8 +61,27 @@
 # 사용 언어
 
 * java8
-* mysql
-* gradle        
+* mariadb
+* gradle 
+
+* 유저 DB
+
+```mysql
+CREATE DATABASE `SGW` DEFAULT CHARACTER SET 'utf8' DEFAULT COLLATE 'utf8_unicode_ci';
+GRANT ALL PRIVILEGES ON `SGW`.* TO 'sgw'@'%' IDENTIFIED BY '1234' WITH GRANT OPTION;
+
+
+use sgw;
+
+CREATE TABLE USER (
+    `USER_NO` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `NICK_NM` VARCHAR(100) NOT NULL,
+    `PWD` VARCHAR(100) NOT NULL,
+    `EMAIL` VARCHAR(100) NOT NULL,
+    `LOGIN_DT` DATETIME,
+    `REG_DT` DATETIME NOT NULL
+);~~``~~
+```       
     
     
 

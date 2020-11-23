@@ -15,6 +15,7 @@ repositories {
 dependencies {
     implementation project(":common")
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    testImplementation 'junit:junit:4.12'
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

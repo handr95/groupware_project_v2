@@ -2,6 +2,7 @@ package com.swg.config.database;
 
 import com.zaxxer.hikari.HikariDataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -17,16 +18,32 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
-class DataSourceConfiguration {
+public class DataSourceConfiguration {
+
+    @Value("${database.sgw.userName}")
+    private String userName;
+    @Value("${database.sgw.password}")
+    private String password;
+    @Value("${database.driverClass}")
+    private String driverClass;
+    @Value("${database.sgw.maximumPoolSize}")
+    private Integer maximumPoolSize;
+    @Value("${database.sgw.minimumIdle}")
+    private Integer minimumIdle;
+    @Value("${database.sgw.databasePlatform}")
+    private String databasePlatform;
+    @Value("${database.sgw.jdbcUrl}")
+    private String jdbcUrl;
 
     @Bean
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setUsername("sgw");
-        dataSource.setPassword("1234");
-        dataSource.setJdbcUrl("jdbc:mariadb://127.0.0.1:3306/swg");
-        dataSource.setMinimumIdle(2);
-        dataSource.setMaximumPoolSize(5);
+        dataSource.setUsername(userName);
+        dataSource.setPassword(password);
+        dataSource.setDriverClassName(driverClass);
+        dataSource.setMinimumIdle(maximumPoolSize);
+        dataSource.setMaximumPoolSize(minimumIdle);
+        dataSource.setJdbcUrl(jdbcUrl);
         return dataSource;
     }
 
@@ -43,7 +60,7 @@ class DataSourceConfiguration {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
         vendorAdapter.setGenerateDdl(true);
-        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.MariaDB102Dialect");
+        vendorAdapter.setDatabasePlatform(databasePlatform);
         return vendorAdapter;
     }
 

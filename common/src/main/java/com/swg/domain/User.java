@@ -8,24 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
+@Table(name = "USER")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="USER_NO")
     private Long userNo;
-    @Column
+    @Column(name="NICK_NM")
     private String nickNm;
-    @Column
+    @Column(name="PWD")
     private String pwd;
-    @Column
+    @Column(name="EMAIL")
     private String email;
-    @Column
+    @Column(name="LOGIN_DT")
     private Date loginDt;
-    @Column
+    @Column(name="REG_DT")
     private Date regDt;
 }

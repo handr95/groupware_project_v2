@@ -16,7 +16,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "com.swg.repository")
 @EnableTransactionManagement
 public class DataSourceConfiguration {
 

@@ -14,8 +14,12 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public Optional<User> findByUserNo(Long _userNo) {
         Optional<User> user = userRepository.findById(_userNo);

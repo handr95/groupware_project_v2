@@ -2,7 +2,7 @@ import com.swg.WebApplication;
 import com.swg.domain.User;
 import com.swg.service.UserService;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,11 +17,6 @@ public class SwgDatabaseTest {
 
     @Autowired
     private UserService userService;
-
-    @Test
-    public void test(){
-        System.out.println("1234");
-    }
 
     @Test
     public void databaseConnectTest() {

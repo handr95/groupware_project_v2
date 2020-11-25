@@ -1,6 +1,6 @@
-import com.swg.WebApplication;
-import com.swg.domain.User;
-import com.swg.service.UserService;
+import com.swg.common.domain.User;
+import com.swg.common.service.UserService;
+import com.swg.web.WebApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

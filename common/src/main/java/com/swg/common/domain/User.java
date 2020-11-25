@@ -1,4 +1,4 @@
-package com.swg.domain;
+package com.swg.common.domain;
 
 
 import java.util.Date;

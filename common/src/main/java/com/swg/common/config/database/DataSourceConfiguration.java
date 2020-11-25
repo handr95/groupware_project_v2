@@ -1,9 +1,10 @@
-package com.swg.config.database;
+package com.swg.common.config.database;
 
 import com.zaxxer.hikari.HikariDataSource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -16,7 +17,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.swg.repository")
+@EnableJpaRepositories(basePackages = "com.swg.common.repository")
+@ComponentScan("com.swg.common.service")
 @EnableTransactionManagement
 public class DataSourceConfiguration {
 
@@ -24,7 +26,7 @@ public class DataSourceConfiguration {
     private String userName;
     @Value("${database.sgw.password}")
     private String password;
-    @Value("${database.driverClass}")
+    @Value("${database.sgw.driverClass}")
     private String driverClass;
     @Value("${database.sgw.maximumPoolSize}")
     private Integer maximumPoolSize;
@@ -51,7 +53,7 @@ public class DataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());
-        factory.setPackagesToScan("com.swg");
+        factory.setPackagesToScan("com.swg.common.domain");
         factory.setDataSource(dataSource());
         return factory;
     }

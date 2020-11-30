@@ -1,8 +1,6 @@
 package com.swg.common.domain;
 
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,13 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Data
+
+@NoArgsConstructor
+@Getter
 @Entity
 @Table(name = "USER")
-public class User {
-
+public class User extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="USER_NO")
@@ -27,8 +28,11 @@ public class User {
     private String pwd;
     @Column(name="EMAIL")
     private String email;
-    @Column(name="LOGIN_DT")
-    private Date loginDt;
-    @Column(name="REG_DT")
-    private Date regDt;
+
+    @Builder
+    public User(String _nickNm, String _pwd, String _email) {
+        this.nickNm = _nickNm;
+        this.pwd = _pwd;
+        this.email = _email;
+    }
 }

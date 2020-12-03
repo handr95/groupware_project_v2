@@ -1,0 +1,23 @@
+{{>common/header}}
+<h1>회원가입 페이지</h1>
+<div class="col-md-12">
+    <div class="col-md-4">
+      <form>
+        <div class="form-group">
+          <lebel for="nickNm">닉네임</lebel>
+          <input class="form-control" type="text" id="nickNm" placeholder="닉네임">
+        </div>
+        <div class="form-group">
+          <lebel for="pwd">비밀 번호</lebel>
+          <input class="form-control" type="text" id="pwd" placeholder="비밀 번호">
+        </div>
+        <div class="form-group">
+          <lebel for="email">이메일</lebel>
+          <input class="form-control" type="text" id="email" placeholder="이메일">
+        </div>
+      </form>
+      <a href="/" role="button" class="btn btn-secondary">취소</a>
+      <button type="button" class="btn btn-primary" id="btn-save">회원 가입</button>
+    </div>
+</div>
+{{>common/footer}}

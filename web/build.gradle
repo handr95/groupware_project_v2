@@ -16,6 +16,9 @@ dependencies {
     implementation project(":common")
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-mustache:${springBootVersion}"
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
     testImplementation "junit:junit:${junitVersion}"
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {

@@ -22,7 +22,12 @@ public class UserService {
     }
 
     public Optional<User> findByUserNo(Long _userNo) {
-        Optional<User> user = userRepository.findById(_userNo);
+        Optional<User> user = userRepository.findByUserNo(_userNo);
+        return user;
+    }
+
+    public Optional<User> findByNickNm(String _nickNm) {
+        Optional<User> user = userRepository.findByNickNm(_nickNm);
         return user;
     }
 

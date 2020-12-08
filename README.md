@@ -19,6 +19,7 @@
     * 본인 이메일 확인
     * 이메일 중복 확인
     * 닉네임 중복 확인
+    * 네이버 로그인 연동
 * 비밀 번호 찾기
     * 임시 비밀 번호 전송
 * 로그인/로그아웃
@@ -80,7 +81,7 @@ CREATE TABLE USER (
     `EMAIL` VARCHAR(100) NOT NULL,
     `LOGIN_DT` DATETIME,
     `REG_DT` DATETIME NOT NULL
-);~~``~~
+);
 ```       
     
     

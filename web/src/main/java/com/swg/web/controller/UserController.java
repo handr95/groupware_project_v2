@@ -26,13 +26,12 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping("/signup/{nickNm}")
+    @GetMapping("/checkNm/{nickNm}")
     public Boolean checkNickNm(@PathVariable(name = "nickNm") String nickNm) {
-        User findUser = userService.findByNickNm(nickNm).get();
+        User findUser = userService.findByNickNm(nickNm).orElse(null);
         if (findUser == null) {
             return true;
         }
-
         return false;
     }
 

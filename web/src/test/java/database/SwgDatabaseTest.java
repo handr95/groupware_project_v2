@@ -1,5 +1,6 @@
 package database;
 
+import com.swg.common.domain.Role;
 import com.swg.common.domain.User;
 import com.swg.common.service.UserService;
 import com.swg.web.WebApplication;
@@ -24,7 +25,7 @@ public class SwgDatabaseTest {
         String nickNm = "testUser001";
         String pwd = "123456";
         String email = "test@gmail.com";
-        User user = new User(nickNm, pwd, email);
+        User user = new User(nickNm, pwd, email, Role.GUEST);
 
         userService.save(user);
 

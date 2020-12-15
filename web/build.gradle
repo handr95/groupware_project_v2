@@ -17,6 +17,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-mustache:${springBootVersion}"
     implementation "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
 
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 

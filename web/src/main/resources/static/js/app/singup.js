@@ -5,7 +5,7 @@ var main = {
         $('#btn-signup').on('click', function () {
             _this.signup(_this);
         });
-        $('#singin').on('click', function () {
+        $('#btn-singin').on('click', function () {
             _this.singin();
         });
         $('#btn-check-nickNm').on('click', function () {
@@ -57,21 +57,20 @@ var main = {
            alert(JSON.stringify(error));
        });
     },
-    signup: function () {
+    singin: function () {
         const data = {
-            nickNm: $('#nickNm').val(),
-            pwd: $('#pwd').val(),
-            email: $('#email').val()
+            username: $('#nickNm').val(),
+            password: $('#pwd').val()
         };
 
         $.ajax({
                    type: 'POST',
-                   url: '/signup',
+                   url: '/signin',
                    dataType: 'json',
-                   contentType: 'application/json; charset=utf-8',
-                   data: JSON.stringify(data)
+                   contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                   data: data
                }).done(function (res) {
-            alert("회원가입 되었습니다.");
+            alert("로그인 되었습니다.");
             location.href = "/"
         }).fail(function (error) {
             alert(JSON.stringify(error));

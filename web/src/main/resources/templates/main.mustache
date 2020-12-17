@@ -3,18 +3,25 @@
   <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
-            <form>
-              <div class="form-group">
-                <lebel for="nickNm">닉네임</lebel>
-                <input class="form-control" type="text" id="nickNm" placeholder="닉네임">
-              </div>
-              <div class="form-group">
-                <lebel for="pwd">비밀 번호</lebel>
-                <input class="form-control" type="text" id="pwd" placeholder="비밀 번호">
-              </div>
-            </form>
+          <form>
+            {{#userName}}
+              {{userName}}
+              <a href="/logout" role="button" class="btn btn-primary">로그 아웃</a>
+            {{/userName}}
+            {{^userName}}
+
+          <div class="form-group">
+            <lebel for="nickNm">닉네임</lebel>
+            <input class="form-control" type="text" id="nickNm" placeholder="닉네임">
+          </div>
+          <div class="form-group">
+            <lebel for="pwd">비밀 번호</lebel>
+            <input class="form-control" type="text" id="pwd" placeholder="비밀 번호">
+          </div>
+        </form>
           <button type="button" class="btn btn-success" id="btn-singin">로그인</button>
           <a href="/signup" role="button" class="btn btn-primary">회원 가입</a>
+            {{/userName}}
         </div>
     </div>
   </div>

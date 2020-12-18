@@ -70,11 +70,11 @@ var main = {
                    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                    data: data
                }).done(function (res) {
-            alert("로그인 되었습니다.");
-            location.href = "/"
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
+                alert("로그인 되었습니다.");
+                location.href = "/"
+                }).fail(function (error) {
+                    alert(JSON.stringify(error));
+                });
     }
 };
 

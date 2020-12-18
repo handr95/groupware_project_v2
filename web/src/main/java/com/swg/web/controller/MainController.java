@@ -1,12 +1,10 @@
 package com.swg.web.controller;
 
-import com.swg.common.domain.User;
+import com.swg.common.domain.UserSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,10 +17,9 @@ public class MainController {
 
     @GetMapping("/")
     public String main(Model model) {
-        Optional<User> user = (Optional<User>) httpSession.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("userName", user.get().getNickNm());
-        }
+        UserSession userSession = (UserSession) httpSession.getAttribute("userSession");
+
+        model.addAttribute("userSession", userSession);
         return "main";
     }
 }

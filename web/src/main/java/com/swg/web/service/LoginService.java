@@ -1,6 +1,7 @@
 package com.swg.web.service;
 
 
+import com.swg.common.domain.UserSession;
 import com.swg.common.service.UserService;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -33,7 +34,8 @@ public class LoginService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getKey()));
 
-        httpSession.setAttribute("user", memberEntityWrapper);
+        UserSession userSession = new UserSession(userEntity);
+        httpSession.setAttribute("userSession", userSession);
         return new User(userEntity.getNickNm(), userEntity.getPwd(), authorities);
     }
 }

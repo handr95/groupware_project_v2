@@ -22,4 +22,9 @@ public class MainController {
         model.addAttribute("userSession", userSession);
         return "main";
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
 }

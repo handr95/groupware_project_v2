@@ -1,5 +1,6 @@
 package com.swg.web.config;
 
+import com.swg.common.domain.Role;
 import com.swg.web.service.LoginService;
 
 import org.springframework.context.annotation.Bean;
@@ -33,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
             .antMatchers("/", "/css/**", "/js/**").permitAll()
-            //.antMatchers("/test").hasRole(Role.USER.name())
+            .antMatchers("/test").hasRole(Role.USER.name())
             .and()
                 .formLogin()
                 .loginProcessingUrl("/signin")

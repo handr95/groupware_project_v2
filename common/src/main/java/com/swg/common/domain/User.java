@@ -1,6 +1,11 @@
 package com.swg.common.domain;
 
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "USER")
-public class User extends BaseTimeEntity {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="USER_NO")
@@ -33,7 +38,12 @@ public class User extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(name="ROLE", nullable = false)
     private Role role;
-
+    @LastModifiedDate
+    @Column(name="LOGIN_DT")
+    private LocalDateTime loginDt;
+    @CreatedDate
+    @Column(name="REG_DT")
+    private LocalDateTime regDt;
 
     @Builder
     public User(String _nickNm, String _pwd, String _email, Role _role) {

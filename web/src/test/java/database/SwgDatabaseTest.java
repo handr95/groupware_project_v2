@@ -34,4 +34,19 @@ public class SwgDatabaseTest {
         assertThat(findUser).isNotNull();
         assertThat(findUser.getNickNm()).isEqualTo(nickNm);
     }
+
+    @Test
+    public void ProjectAndTaskInsertTest() {
+        String nickNm = "testUser001";
+        String pwd = "123456";
+        String email = "test@gmail.com";
+        User user = new User(nickNm, pwd, email, Role.GUEST);
+
+        userService.save(user);
+
+        User findUser = userService.findByUserNo(user.getUserNo()).get();
+
+        assertThat(findUser).isNotNull();
+        assertThat(findUser.getNickNm()).isEqualTo(nickNm);
+    }
 }

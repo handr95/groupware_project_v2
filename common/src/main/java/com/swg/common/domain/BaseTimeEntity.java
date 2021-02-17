@@ -14,8 +14,8 @@ import javax.persistence.MappedSuperclass;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
     @LastModifiedDate
-    @Column(name="LOGIN_DT")
-    private LocalDateTime loginDt;
+    @Column(name="UPDATE_DT")
+    private LocalDateTime updateDt;
     @CreatedDate
     @Column(name="REG_DT")
     private LocalDateTime regDt;

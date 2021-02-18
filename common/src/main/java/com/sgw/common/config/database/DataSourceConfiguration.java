@@ -18,8 +18,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.swg.common.repository")
-@ComponentScan("com.swg.common.service")
+@EnableJpaRepositories(basePackages = "com.sgw.common.repository")
+@ComponentScan("com.sgw.common.service")
 @EnableTransactionManagement
 @EnableJpaAuditing
 public class DataSourceConfiguration {
@@ -55,7 +55,7 @@ public class DataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());
-        factory.setPackagesToScan("com.swg.common.domain");
+        factory.setPackagesToScan("com.sgw.common.domain");
         factory.setDataSource(dataSource());
         return factory;
     }

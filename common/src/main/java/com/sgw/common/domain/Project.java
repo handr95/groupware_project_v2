@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -32,11 +31,9 @@ public class Project  extends BaseTimeEntity {
     @Column(name="OPEN_YN", nullable = false)
     private Short openYn;
     @OneToMany(mappedBy = "project")
-    @JoinColumn(name="PROJECT_NO", insertable = false)
     private List<Task> taskList = new ArrayList<>();
     @Builder
-    public Project(Long projectNo, String projectTitle, String projectDesc, Short openYn) {
-        this.projectNo = projectNo;
+    public Project(String projectTitle, String projectDesc, Short openYn) {
         this.projectTitle = projectTitle;
         this.projectDesc = projectDesc;
         this.openYn = openYn;

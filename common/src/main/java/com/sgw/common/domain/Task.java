@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -47,6 +48,17 @@ public class Task extends BaseTimeEntity {
     @ManyToOne
     @JoinColumn(name="MANAGER_NO")
     private User user;
+
+    @Builder
+    public Task(String taskTitle, String taskDesc, LocalDateTime startDt, LocalDateTime endDt, TaskState state, Project project, User user) {
+        this.taskTitle = taskTitle;
+        this.taskDesc = taskDesc;
+        this.startDt = startDt;
+        this.endDt = endDt;
+        this.state = state;
+        this.project = project;
+        this.user = user;
+    }
 
     public void setProject(Project project) {
         if (this.project != null) {

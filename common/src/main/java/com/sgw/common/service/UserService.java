@@ -1,7 +1,7 @@
-package com.swg.common.service;
+package com.sgw.common.service;
 
-import com.swg.common.domain.User;
-import com.swg.common.repository.UserRepository;
+import com.sgw.common.domain.User;
+import com.sgw.common.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

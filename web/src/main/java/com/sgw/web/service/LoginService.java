@@ -1,8 +1,8 @@
-package com.swg.web.service;
+package com.sgw.web.service;
 
 
-import com.swg.common.domain.UserSession;
-import com.swg.common.service.UserService;
+import com.sgw.common.domain.UserSession;
+import com.sgw.common.service.UserService;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,8 +28,8 @@ public class LoginService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<com.swg.common.domain.User> memberEntityWrapper = userService.findByNickNm(username);
-        com.swg.common.domain.User userEntity = memberEntityWrapper.orElse(null);
+        Optional<com.sgw.common.domain.User> memberEntityWrapper = userService.findByNickNm(username);
+        com.sgw.common.domain.User userEntity = memberEntityWrapper.orElse(null);
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(userEntity.getRole().getKey()));

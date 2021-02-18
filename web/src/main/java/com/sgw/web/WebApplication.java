@@ -1,4 +1,4 @@
-package com.swg.web;
+package com.sgw.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

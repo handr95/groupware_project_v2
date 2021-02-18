@@ -1,4 +1,4 @@
-package com.swg.common.config.database;
+package com.sgw.common.config.database;
 
 import com.zaxxer.hikari.HikariDataSource;
 

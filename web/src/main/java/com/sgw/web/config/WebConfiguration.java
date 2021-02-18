@@ -1,11 +1,13 @@
-package com.swg.web.config;
+package com.sgw.web.config;
+
+import com.sgw.common.config.database.DataSourceConfiguration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 
 @Configuration
-@Import(com.swg.common.config.database.DataSourceConfiguration.class)
+@Import(DataSourceConfiguration.class)
 public class WebConfiguration {
 
 }

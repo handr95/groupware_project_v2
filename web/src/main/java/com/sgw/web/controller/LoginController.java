@@ -1,8 +1,8 @@
-package com.swg.web.controller;
+package com.sgw.web.controller;
 
-import com.swg.common.domain.User;
-import com.swg.common.service.UserService;
-import com.swg.web.dto.SignupDtoRequest;
+import com.sgw.common.domain.User;
+import com.sgw.common.service.UserService;
+import com.sgw.web.dto.SignupDtoRequest;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

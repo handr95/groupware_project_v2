@@ -1,6 +1,6 @@
-package com.swg.common.repository;
+package com.sgw.common.repository;
 
-import com.swg.common.domain.User;
+import com.sgw.common.domain.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

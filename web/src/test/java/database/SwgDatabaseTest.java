@@ -1,9 +1,9 @@
 package database;
 
-import com.swg.common.domain.Role;
-import com.swg.common.domain.User;
-import com.swg.common.service.UserService;
-import com.swg.web.WebApplication;
+import com.sgw.common.domain.Role;
+import com.sgw.common.domain.User;
+import com.sgw.common.service.UserService;
+import com.sgw.web.WebApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

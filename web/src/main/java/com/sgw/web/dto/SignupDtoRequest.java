@@ -1,7 +1,7 @@
-package com.swg.web.dto;
+package com.sgw.web.dto;
 
-import com.swg.common.domain.Role;
-import com.swg.common.domain.User;
+import com.sgw.common.domain.Role;
+import com.sgw.common.domain.User;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 

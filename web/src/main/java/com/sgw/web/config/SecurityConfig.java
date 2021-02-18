@@ -1,6 +1,6 @@
-package com.swg.web.config;
+package com.sgw.web.config;
 
-import com.swg.web.service.LoginService;
+import com.sgw.web.service.LoginService;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

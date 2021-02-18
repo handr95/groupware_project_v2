@@ -1,4 +1,4 @@
-package com.swg.common.domain;
+package com.sgw.common.domain;
 
 import lombok.Getter;
 

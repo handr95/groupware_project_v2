@@ -1,6 +1,6 @@
-package com.swg.web.controller;
+package com.sgw.web.controller;
 
-import com.swg.common.domain.UserSession;
+import com.sgw.common.domain.UserSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

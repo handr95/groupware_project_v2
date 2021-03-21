@@ -1,0 +1,24 @@
+{{>common/header}}
+<h1>프로젝트 추가 페이지</h1>
+<div class="col-md-12">
+  <div class="col-md-4">
+    <form>
+      <div class="form-group">
+        <lebel for="nickNm">프로젝트 이름</lebel>
+        <input class="form-control" type="text" id="projectTitle" placeholder="프로젝트 이름">
+      </div>
+      <div class="form-group">
+        <lebel for="pwd">프로젝트 설명</lebel>
+        <input class="form-control" type="text" id="projectDesc" placeholder="프로젝트 설명">
+      </div>
+      <div class="form-group">
+        <lebel for="email">공개 여부</lebel>
+        <input class="form-control" type="checkbox" id="openYn" placeholder="공개 여부">
+      </div>
+    </form>
+    <a href="/" role="button" class="btn btn-secondary">취소</a>
+    <button type="button" class="btn btn-primary" id="btn-add-project">프로젝트 추가</button>
+  </div>
+</div>
+<script src="/js/app/project.js"></script>
+{{>common/footer}}

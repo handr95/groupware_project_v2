@@ -1,10 +1,13 @@
 package com.sgw.common.service;
 
 import com.sgw.common.domain.Project;
+import com.sgw.common.domain.User;
 import com.sgw.common.repository.ProjectRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -20,6 +23,11 @@ public class ProjectService {
 
     public Project save(Project _project) {
         Project project = projectRepository.save(_project);
+        return project;
+    }
+
+    public List<Project> findByUser(User _user) {
+        List<Project> project = projectRepository.findByUser(_user);
         return project;
     }
 }

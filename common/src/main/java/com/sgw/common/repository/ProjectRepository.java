@@ -1,9 +1,12 @@
 package com.sgw.common.repository;
 
 import com.sgw.common.domain.Project;
+import com.sgw.common.domain.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProjectRepository extends JpaRepository<Project, Long> {
+import java.util.List;
 
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+    List<Project> findByUser(User user);
 }

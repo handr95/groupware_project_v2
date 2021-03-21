@@ -1,29 +1,33 @@
 {{>common/header}}
-  <h1>메인 페이지</h1>
-  <div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
-          <form>
-            {{#userSession}}
-              {{userSession.nickNm}}
-              <a href="/logout" role="button" class="btn btn-primary">로그 아웃</a>
-            {{/userSession}}
+<h1>메인 페이지</h1>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6">
+    <form>
+      {{#userSession}}
+        {{userSession.nickNm}}
+        <a href="/logout" role="button" class="btn btn-primary">로그 아웃</a>
+        <a href="/project" role="button" class="btn btn-primary">프로젝트 추가</a>
+        {{#projectList}}
+            <a href="/project/{{projectNo}}"> {{projectTitle}} : {{projectDesc}} </a>
+        {{/projectList}}
+      {{/userSession}}
 
-            {{^userSession}}
-          <div class="form-group">
-            <lebel for="nickNm">닉네임</lebel>
-            <input class="form-control" type="text" id="nickNm" placeholder="닉네임">
-          </div>
-          <div class="form-group">
-            <lebel for="pwd">비밀 번호</lebel>
-            <input class="form-control" type="text" id="pwd" placeholder="비밀 번호">
-          </div>
-        </form>
-          <button type="button" class="btn btn-success" id="btn-singin">로그인</button>
-          <a href="/signup" role="button" class="btn btn-primary">회원 가입</a>
-            {{/userSession}}
+      {{^userSession}}
+        <div class="form-group">
+          <lebel for="nickNm">닉네임</lebel>
+          <input class="form-control" type="text" id="nickNm" placeholder="닉네임">
         </div>
+        <div class="form-group">
+          <lebel for="pwd">비밀 번호</lebel>
+          <input class="form-control" type="text" id="pwd" placeholder="비밀 번호">
+        </div>
+      </form>
+        <button type="button" class="btn btn-success" id="btn-singin">로그인</button>
+        <a href="/signup" role="button" class="btn btn-primary">회원 가입</a>
+      {{/userSession}}
     </div>
   </div>
+</div>
 <script src="/js/app/singup.js"></script>
 {{>common/footer}}

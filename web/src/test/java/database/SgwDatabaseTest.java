@@ -49,15 +49,15 @@ public class SgwDatabaseTest {
 
     @Test
     public void ProjectAndTaskInsertTest() {
+        Long userNo = 1L;
+        User findUser = userService.findByUserNo(userNo).get();
+
         String projectTitle = "프로젝트 제목";
         String projectDesc = "프로젝트 설명";
         Short openYn = 1;
-        Project project = new Project(projectTitle, projectDesc, openYn);
+        Project project = new Project(projectTitle, projectDesc, findUser, openYn);
 
         projectService.save(project);
-
-        Long userNo = 1L;
-        User findUser = userService.findByUserNo(userNo).get();
 
         String taskTitle = "일감 제목";
         String taskDesc = "일감 내용";
@@ -71,5 +71,10 @@ public class SgwDatabaseTest {
         Task findTask = taskService.findByTaskNo(task.getTaskNo()).get();
         assertThat(findTask).isNotNull();
         assertThat(findTask.getTaskTitle()).isEqualTo(taskTitle);
+    }
+
+    @Test
+    public void encoding_test() {
+        System.out.println("한글이 잘 나오나..;;;");
     }
 }
